@@ -17,12 +17,14 @@ namespace Book.Data
                 new Category
                 {
                     CategoryId = 1,
-                    Name = "alawoddin"
+                    Name = "alawoddin",
+                    DisplayOrder = 1,
                 },
                 new Category
                 {
                     CategoryId = 2,
-                    Name = "developer"
+                    Name = "developer",
+                    DisplayOrder = 2,
                 }
             );
         }
