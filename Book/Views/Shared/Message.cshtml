@@ -1,0 +1,41 @@
+﻿@if (TempData["success"] != null)
+{
+    <script>
+        toastr.options = {
+            "closeButton": true,
+            "progressBar": true,
+            "positionClass": "toast-top-right",
+            "timeOut": "3000"
+        };
+
+        toastr.success('@TempData["success"]');
+    </script>
+}
+
+@if (TempData["error"] != null)
+{
+    <script>
+        toastr.options = {
+            "closeButton": true,
+            "progressBar": true,
+            "positionClass": "toast-top-right",
+            "timeOut": "3000"
+        };
+
+        toastr.error('@TempData["error"]');
+    </script>
+}
+
+@if (TempData["warning"] != null)
+{
+    <script>
+        toastr.warning('@TempData["warning"]');
+    </script>
+}
+
+@if (TempData["info"] != null)
+{
+    <script>
+        toastr.info('@TempData["info"]');
+    </script>
+}
