@@ -16,7 +16,7 @@ namespace Book.Areas.Customer.Controllers
 
         public IActionResult Index()
         {
-            var Products = _context.Categories.ToList();
+            var Products = _context.Products.ToList();
 
             return View(Products);
         }

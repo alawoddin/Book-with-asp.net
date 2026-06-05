@@ -62,5 +62,15 @@ namespace Boo.Business.Services
             await _context.SaveChangesAsync();
             return product;
         }
+
+        public Task<IEnumerable<Product>> GetAllProductAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Product?> UpdateProductAsync(Product category)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
