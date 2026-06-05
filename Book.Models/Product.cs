@@ -51,7 +51,7 @@ namespace Book.Models
         [Range(1, 1000)]
         public double Price100 { get; set; }
 
-        [Required]
+        [ValidedNaver]
         [Display(Name = "Product Iamge")]
         public string? ImageUrl { get; set; }
 
