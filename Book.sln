@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Book", "Book\Book.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Book.DataAccess", "Book.DataAccess\Book.DataAccess.csproj", "{DAB3E212-4ED9-408E-8024-55D30779CB20}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boo.Business", "Boo.Business\Boo.Business.csproj", "{298F3ACB-6812-49C0-809A-333259E87C7B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Book.Business", "Boo.Business\Book.Business.csproj", "{298F3ACB-6812-49C0-809A-333259E87C7B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Book.Models", "Book.Models\Book.Models.csproj", "{7261A00D-DDBF-49BC-BE9C-ECC8C2385F5B}"
 EndProject
