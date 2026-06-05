@@ -1,9 +1,12 @@
-﻿using Book.Data;
+﻿using System.Linq;
+using Book.Controllers;
+using Book.DataAccess;
 using Book.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Book.Controllers
+namespace Book.Areas.Customer.Controllers
 {
+    [Area("Customer")]
     public class CategoryController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -12,41 +15,41 @@ namespace Book.Controllers
         {
             _context = context;
         }
+
         public IActionResult Index()
         {
             var categories = _context.Categories.ToList();
-            return View("Index" , categories);
+            return View("Index", categories);
         }
 
         public IActionResult Create()
         {
             return View();
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [ActionName("Create")]
-        public IActionResult CreatePOST(Category category)
+        public IActionResult Create(Category category)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 _context.Categories.Add(category);
                 _context.SaveChanges();
                 TempData["success"] = "Category Insert successfully";
 
-                return RedirectToAction("Index");
+                return RedirectToAction(nameof(Index));
             }
-            return View();
-           
+            return View(category);
         }
 
         public IActionResult Update(int? id)
         {
-            if(id == null || id == 0)
+            if (id == null || id == 0)
             {
                 return NotFound();
             }
             var category = _context.Categories.Find(id);
-            if(category == null)
+            if (category == null)
             {
                 return NotFound();
             }
@@ -55,8 +58,7 @@ namespace Book.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [ActionName("Update")]
-        public IActionResult UpdatePOST(Category category)
+        public IActionResult Update(Category category)
         {
             if (ModelState.IsValid)
             {
@@ -64,10 +66,9 @@ namespace Book.Controllers
                 _context.SaveChanges();
                 TempData["success"] = "Category Update successfully";
 
-                return RedirectToAction("Index");
+                return RedirectToAction(nameof(Index));
             }
-            return View();
-
+            return View(category);
         }
 
         public IActionResult Delete(int? id)
@@ -86,7 +87,7 @@ namespace Book.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Delete(int id)
+        public IActionResult DeleteConfirmed(int id)
         {
             var category = _context.Categories.Find(id);
 
@@ -102,7 +103,5 @@ namespace Book.Controllers
 
             return RedirectToAction(nameof(Index));
         }
-
-
     }
 }
