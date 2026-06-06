@@ -21,6 +21,13 @@ namespace Book.Areas.Customer.Controllers
             return View(Products);
         }
 
+        public IActionResult GetAll()
+        {
+            var Products = _context.Products.ToList();
+
+            return Json(new {data= Products });
+        }
+
         public IActionResult Create()
         {
             return View();
