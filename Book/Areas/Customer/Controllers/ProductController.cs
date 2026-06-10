@@ -1,6 +1,7 @@
 ﻿using Book.Data;
 using Book.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Book.Areas.Customer.Controllers
 {
@@ -16,16 +17,18 @@ namespace Book.Areas.Customer.Controllers
 
         public IActionResult Index()
         {
-            var Products = _context.Products.ToList();
+            //var Products = _context.Products.ToList();
 
-            return View(Products);
+            return View();
         }
 
         public IActionResult GetAll()
         {
-            var Products = _context.Products.ToList();
+            var products = _context.Products
+                .Include(p => p.Category)
+                .ToList();
 
-            return Json(new {data= Products });
+            return Json(new { data = products });
         }
 
         public IActionResult Create()

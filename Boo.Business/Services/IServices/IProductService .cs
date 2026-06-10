@@ -9,7 +9,7 @@ namespace Boo.Business.Services.IServices
 {
     public interface IProductService
     {
-        Task<IEnumerable<Product>> GetAllProductAsync();
+        Task<IEnumerable<Product>> GetAllProductAsync(bool includeCategory=false);
 
         Task<Product?> GetProductByIdAsync(int id);
 
